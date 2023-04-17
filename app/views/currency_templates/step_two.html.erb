@@ -1,4 +1,4 @@
-<h1>Convert USD</h1> 
+<h1>Convert <%= @from_symbol%> </h1> 
 
 <p>
 Go <a href="/forex">back</a>
@@ -9,8 +9,8 @@ Go <a href="/forex">back</a>
 
 <li>
 
-<a href= "/forex/USD/<%= a_symbol%>" >
-Convert 1 USD to <%= a_symbol%>
+<a href= "/forex/<%= @from_symbol%>/<%= a_symbol %>">
+Convert 1 <%= @from_symbol%> to <%= a_symbol%>...
 </a>
 </li>
 <% end %>

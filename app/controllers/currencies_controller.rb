@@ -15,10 +15,18 @@ class CurrenciesController < ApplicationController
     @raw_data =  open("https://api.exchangerate.host/symbols").read
     @parsed_data = JSON.parse(@raw_data)
     @symbols_hash = @parsed_data.fetch("symbols")
+     @array_of_symbols = @symbols_hash.keys
+
+     #params are
+     # Parameters: {"from_currency"=>"AED"}
 
 
-    @array_of_symbols = @symbols_hash.keys
-    render({ :template => "currency_templates/step_two.html.erb"})
-    
+     @from_symbol = params.fetch("from_currency")
+    render({ :template => "currency_templates/step_two.html.erb"})  
+  end
+
+  def currency_result
+
+    render({ :template => "currency_templates/currencies_results.html.erb"})  
   end
 end
